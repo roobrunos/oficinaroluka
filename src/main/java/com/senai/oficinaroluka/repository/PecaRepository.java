@@ -7,7 +7,7 @@ import com.senai.oficinaroluka.model.Peca;
 
 @Repository
 public interface PecaRepository extends JpaRepository<Peca, Long> {
-    Peca findByCodigo(String codigo); // Para facilitar busca por código
+    Peca findByCodigo(String codigo);   //  busca por código
 
 
 }

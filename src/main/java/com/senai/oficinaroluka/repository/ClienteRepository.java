@@ -10,6 +10,6 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
     
     
     
-    // Aqui você pode adicionar métodos customizados se necessário
+    // adicionar metodos customizados 
 }
 
