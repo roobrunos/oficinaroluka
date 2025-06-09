@@ -7,6 +7,6 @@ import com.senai.oficinaroluka.model.Veiculo;
 
 @Repository
 public interface VeiculoRepository extends JpaRepository<Veiculo, Long> {
-    Veiculo findByPlaca(String placa); // Exemplo útil
+    Veiculo findByPlaca(String placa); 
 }
 

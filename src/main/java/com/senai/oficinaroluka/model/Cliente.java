@@ -1,7 +1,13 @@
 package com.senai.oficinaroluka.model;
 
-import jakarta.persistence.*;
 import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Cliente {
@@ -12,9 +18,9 @@ public class Cliente {
 
     private String nome;
 
-    private String documento; // CPF ou CNPJ
+    private String documento; // cpf ou cpnj
 
-    private String tipoPessoa; // FISICA ou JURIDICA
+    private String tipoPessoa; // fisica ou juridica
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Veiculo> veiculos;

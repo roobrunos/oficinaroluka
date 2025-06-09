@@ -16,7 +16,6 @@ public class OrdemServicoService {
     private OrdemServicoRepository ordemServicoRepository;
 
     public OrdemServico salvar(OrdemServico ordem) {
-        // 🔹 Aqui no futuro pode validar se há peças suficientes no estoque
         return ordemServicoRepository.save(ordem);
     }
 

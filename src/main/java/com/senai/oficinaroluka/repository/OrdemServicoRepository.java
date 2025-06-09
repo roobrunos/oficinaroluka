@@ -7,6 +7,6 @@ import com.senai.oficinaroluka.model.OrdemServico;
 
 @Repository
 public interface OrdemServicoRepository extends JpaRepository<OrdemServico, Long> {
-    OrdemServico findByCodigo(String codigo); // Exemplo útil
+    OrdemServico findByCodigo(String codigo); 
 }
 
