@@ -1,0 +1,42 @@
+<h2>Clientes</h2>
+
+<button
+  pButton
+  type="button"
+  label="Novo Cliente"
+  icon="pi pi-plus"
+  class="p-button-success mb-3"
+  (click)="novoCliente()">
+</button>
+
+<p-table [value]="clientes" [paginator]="true" [rows]="5" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Telefone</th>
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-cliente>
+    <tr>
+      <td>{{ cliente.nome }}</td>
+      <td>{{ cliente.email }}</td>
+      <td>{{ cliente.telefone }}</td>
+      <td>
+        <button
+          pButton
+          icon="pi pi-pencil"
+          class="p-button-sm p-button-warning"
+          (click)="editarCliente(cliente.id)">
+        </button>
+        <button
+          pButton
+          icon="pi pi-trash"
+          class="p-button-sm p-button-danger ml-2"
+          (click)="excluirCliente(cliente.id)">
+        </button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

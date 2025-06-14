@@ -1,0 +1,23 @@
+
+<h2>{{ clienteId ? 'Editar Cliente' : 'Novo Cliente' }}</h2>
+
+<form [formGroup]="clienteForm" (ngSubmit)="salvar()">
+  <div class="p-fluid">
+    <div class="p-field">
+      <label for="nome">Nome</label>
+      <input id="nome" type="text" pInputText formControlName="nome" />
+    </div>
+
+    <div class="p-field">
+      <label for="email">Email</label>
+      <input id="email" type="email" pInputText formControlName="email" />
+    </div>
+
+    <div class="p-field">
+      <label for="telefone">Telefone</label>
+      <input id="telefone" type="text" pInputText formControlName="telefone" />
+    </div>
+
+    <button pButton type="submit" label="Salvar" class="p-button-success mt-2"></button>
+  </div>
+</form>
