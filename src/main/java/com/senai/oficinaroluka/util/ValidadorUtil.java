@@ -15,19 +15,27 @@ public class ValidadorUtil {
     }
 
     public static boolean validarCPF(String cpf) {
-        if (cpf == null || !cpf.matches("\\d{11}")) return false;
+        if (cpf == null) return false;
+        cpf = cpf.replaceAll("\\D", ""); 
+        if (!cpf.matches("\\d{11}")) return false;
+
         int soma = 0, peso = 10;
         for (int i = 0; i < 9; i++) soma += (cpf.charAt(i) - '0') * peso--;
         int dig1 = 11 - (soma % 11); dig1 = (dig1 > 9) ? 0 : dig1;
+
         soma = 0; peso = 11;
         for (int i = 0; i < 9; i++) soma += (cpf.charAt(i) - '0') * peso--;
         soma += dig1 * 2;
         int dig2 = 11 - (soma % 11); dig2 = (dig2 > 9) ? 0 : dig2;
+
         return dig1 == (cpf.charAt(9) - '0') && dig2 == (cpf.charAt(10) - '0');
     }
 
     public static boolean validarCNPJ(String cnpj) {
-        if (cnpj == null || !cnpj.matches("\\d{14}")) return false;
+        if (cnpj == null) return false;
+        cnpj = cnpj.replaceAll("\\D", ""); 
+        if (!cnpj.matches("\\d{14}")) return false;
+
         int[] pesos1 = {5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
         int[] pesos2 = {6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
 
@@ -42,4 +50,5 @@ public class ValidadorUtil {
         return dig1 == (cnpj.charAt(12) - '0') && dig2 == (cnpj.charAt(13) - '0');
     }
 }
+
 

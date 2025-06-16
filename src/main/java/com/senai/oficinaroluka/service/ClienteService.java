@@ -18,6 +18,10 @@ public class ClienteService {
     public Cliente salvar(Cliente cliente) {
         return clienteRepository.save(cliente);
     }
+    public Optional<Cliente> buscarPorCpf(String cpf) {
+        return clienteRepository.findByDocumento(cpf);
+    }
+    
 
     public List<Cliente> listarTodos() {
         return clienteRepository.findAll();

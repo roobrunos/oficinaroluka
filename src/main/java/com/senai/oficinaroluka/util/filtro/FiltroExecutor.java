@@ -1,9 +1,9 @@
 package com.senai.oficinaroluka.util.filtro;
 
-import com.senai.oficinaroluka.model.OrdemServico;
-
 import java.util.List;
 import java.util.stream.Collectors;
+
+import com.senai.oficinaroluka.model.OrdemServico;
 
 public class FiltroExecutor {
 
@@ -16,8 +16,8 @@ public class FiltroExecutor {
             throw new IllegalArgumentException("Comando inválido");
         }
 
-        // Muito simplificado: só lida com status por enquanto
-        // Exemplo válido: cliente.status = "em aberto"
+               // simplificado: só lida com status por enquanto
+             // status "em aberto"
         return ordens.stream()
                 .filter(ordem -> {
                     if (comando.contains("status") && comando.contains("\"em aberto\"")) {

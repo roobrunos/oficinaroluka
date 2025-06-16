@@ -1,5 +1,6 @@
 package com.senai.oficinaroluka.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,9 +16,23 @@ public class OrdemServicoService {
     @Autowired
     private OrdemServicoRepository ordemServicoRepository;
 
+    
     public OrdemServico salvar(OrdemServico ordem) {
+        if (ordem.getCodigo() == null || ordem.getCodigo().isBlank()) {
+            ordem.setCodigo(gerarCodigoUnico());
+        }
+    
+        ordem.setDataCriacao(LocalDate.now());
         return ordemServicoRepository.save(ordem);
     }
+    
+    private String gerarCodigoUnico() {
+        Long ultimaId = ordemServicoRepository.findTopByOrderByIdDesc()
+            .map(o -> o.getId() + 1)
+            .orElse(1L);
+        return String.format("OS%05d", ultimaId);
+    }
+    
 
     public List<OrdemServico> listarTodas() {
         return ordemServicoRepository.findAll();
